@@ -12,18 +12,21 @@ import axios from 'axios'
             data: [],
             email: this.props.match.params.email,
         }
-        this.renderTodoitem = this.renderTodoitem.bind(this)
-       axios.post('https://express-api-001.herokuapp.com/todo/getLogTime', {
+        
+      //  this.renderTodoitem = this.renderTodoitem.bind(this)
+    
+    }
+   
+    componentWillMount(){
+        axios.post('https://express-api-001.herokuapp.com/todo/getLogTime', {
             email: this.props.match.params.email
         }).then((res) => this.setState({
             data: res.data,
         }))
     }
 
-
     
      renderTodoitem() {
-        
         return (
             this.state.data.map((row) => {  
                 return (
